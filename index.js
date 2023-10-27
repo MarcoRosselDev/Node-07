@@ -5,11 +5,15 @@ const url = process.env.MONGO_URL;
 const express = require('express');
 const app = express()
 const puerto = process.env.PUERTO;
+// router
+const user = require('./router/usuario.js')
+
+
+app.use('/registrar', user)
 
 app.get('/', (req, res) => {
   res.status(200).json({msj: 'Hola mundo!'})
 })
-
 
 const start = async () =>{
   try {
