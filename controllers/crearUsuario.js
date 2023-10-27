@@ -3,10 +3,11 @@ const Usuario = require('../schema/models.js');
 const nuevoUsuario = async (req, res) =>{
   try {
     console.log(req.body);
-    const {nombre, password} = req.body
+    const {nombre, password, email} = req.body
     const usuario = await new Usuario({
       nombre: nombre,
-      password: password
+      password: password,
+      email: email
     });
     await usuario.save();
     res.status(200).json(usuario)

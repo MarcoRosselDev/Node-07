@@ -9,6 +9,10 @@ const usuario = new Schema({
   },
   password: {
     type: String,
+    require: true
+  },
+  email: {
+    type: String,
     require: true,
     unique: true
   },
