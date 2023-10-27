@@ -1,5 +1,5 @@
-const connect = require('./connect.js')
-require('dotenv').config()
+const connect = require('./connect.js');
+require('dotenv').config();
 const url = process.env.MONGO_URL;
 // express
 const express = require('express');
