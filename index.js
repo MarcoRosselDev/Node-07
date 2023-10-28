@@ -1,6 +1,7 @@
 const connect = require('./connect.js');
 require('dotenv').config();
 const url = process.env.MONGO_URL;
+const morgan = require('morgan'); //--> log info about method, status, time, etcGIT 
 // express
 const express = require('express');
 const app = express()
@@ -18,6 +19,7 @@ app.use(express.json())
 
 app.use(express.urlencoded({extended: false}))// decodificar json aplication
 app.use(express.json())// ---> req.body --> si no, no se envia el body
+app.use(morgan('dev')) // ---> log() info sobre la peticion, estado, method, etc
 app.use('/', user)
 
 const start = async () =>{
