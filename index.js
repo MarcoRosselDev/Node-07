@@ -7,7 +7,6 @@ const app = express()
 const puerto = process.env.PUERTO;
 // router
 const user = require('./router/usuario.js')
-
 /* 
 app.use(express.urlencoded({ extended: false }));
 //middleware
@@ -18,8 +17,8 @@ app.use(express.json())
 */
 
 app.use(express.urlencoded({extended: false}))// decodificar json aplication
-app.use(express.json())// ---> req.body
-app.use('/registrar', user)
+app.use(express.json())// ---> req.body --> si no, no se envia el body
+app.use('/', user)
 
 const start = async () =>{
   try {

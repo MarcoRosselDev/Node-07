@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {getUser, nuevoUsuario} = require('../controllers/crearUsuario.js')
+const {obtenerUsuario, nuevoUsuario} = require('../controllers/usuariosfn.js')
+const {getToken} = require('../controllers/login.js')
 
-router.route('/').get(getUser).post(nuevoUsuario);
+router.route('/registrar').get(obtenerUsuario).post(nuevoUsuario);
+router.route('/login').get(getToken)
 
 module.exports = router;

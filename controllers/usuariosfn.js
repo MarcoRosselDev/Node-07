@@ -16,7 +16,7 @@ const nuevoUsuario = async (req, res) =>{
   }
 }
 
-const getUser = async (req, res) => {
+const obtenerUsuario = async (req, res) => {
   try {
     const user = await Usuario.find()
     res.status(200).json(user)
@@ -27,5 +27,5 @@ const getUser = async (req, res) => {
 
 module.exports = {
   nuevoUsuario,
-  getUser
+  obtenerUsuario
 }
