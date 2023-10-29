@@ -2,7 +2,7 @@
   "name": "node-07",
   "version": "1.0.0",
   "description": "CRUD, jwt, cookies, and resondive designe",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
