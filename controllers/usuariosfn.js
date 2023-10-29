@@ -1,4 +1,4 @@
-const Usuario = require('../schema/models.js');
+const Usuario = require('../models/Usuario.js');
 
 const nuevoUsuario = async (req, res) =>{
   try {
@@ -9,6 +9,9 @@ const nuevoUsuario = async (req, res) =>{
       password: password,
       email: email
     });
+
+    // en alguna parte devemos llamar el methodo encryptar password
+    // antes de guardarlo en mongoDB
     await usuario.save();
     res.status(200).json(usuario)
   } catch (error) {
