@@ -1,12 +1,15 @@
 const start = require('./start.js')
 const morgan = require('morgan'); //--> log info about method, status, time, etcGIT 
 const path = require('path')
+const {engine} = require('express-handlebars');
 // express
 const express = require('express');
 const app = express()
 // router
 const user = require('./router/usuario.js')
 
+//handlebars settings
+app.engine('handlebars', engine())
 app.use(express.urlencoded({extended: false}))// decodificar json aplication
 app.use(express.json())// ---> req.body --> si no, no se envia el body
 app.use(morgan('dev')) // ---> log() info sobre la peticion, estado, method, etc

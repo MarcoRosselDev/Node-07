@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
-const {Schema, model} = mongoose;
 const bcrypt = require('bcryptjs');
 
-const usuario = new Schema({
+const userSchema = new mongoose.Schema({
   nombre: {
     type: String,
     require: true,
@@ -27,15 +26,15 @@ const usuario = new Schema({
 // si estas coinsiden devolvemos un booleano.s
 
 // paso 1. encyptar antes de guardar
-usuario.methods.encryptar = async (password) =>{
+userSchema.methods.encryptar = async (password) =>{
   const salt = bcrypt.getSalt(10);
   return await bcrypt.hash(password, salt);
 }
 
 // paso 2. comparar encryptados
-usuario.methods.coparar = async function (password) {
+userSchema.methods.coparar = async function (password) {
   return await bcrypt.compare(password, this.password);
 }
 // return boolean
 
-module.exports = model('Usuario', usuario);
+module.exports = mongoose.model('User', userSchema);

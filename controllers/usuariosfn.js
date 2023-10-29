@@ -1,10 +1,10 @@
-const Usuario = require('../models/Usuario.js');
+const User = require('../models/Usuario.js');
 
 const nuevoUsuario = async (req, res) =>{
   try {
     console.log(req.body);
     const {nombre, password, email} = req.body
-    const usuario = await new Usuario({
+    const usuario = await new User({
       nombre: nombre,
       password: password,
       email: email
