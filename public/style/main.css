@@ -34,6 +34,11 @@ header nav{
   justify-content: space-between;
 }
 
+/* ocultar */
+.ocultar{
+  display: none;
+}
+
 /* header nav{
   display: flex;
   flex-direction: row;
