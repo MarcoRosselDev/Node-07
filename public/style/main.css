@@ -1,6 +1,8 @@
 :root {
-  --main-bg-color: rgb(16 16 16);
+  --main-bg-color: rgb(4, 13, 26);
   --main-color: rgb(255 255 255);
+  --header-bg: rgb(12, 26, 39);
+  --border-color: rgba(138, 145, 202, 0.493);
 }
 
 *{
@@ -17,7 +19,22 @@ body{
   height: 100vh;
 }
 
+header{
+  background-color: var(--header-bg);
+  height: 75px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
 header nav{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* header nav{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -27,12 +44,11 @@ header nav{
   height: 75px;
   border-bottom: 1px solid var(--main-color);
 }
-
+ */
 svg{
   width: 25px;
   height: 25px;
-  fill: red;
-  margin: 15px;
+  fill: var(--main-color);
   margin-right: 25px;
 }
 
