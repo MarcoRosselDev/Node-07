@@ -4,7 +4,11 @@ const {Schema, model} = mongoose;
 const tarea = new Schema({
   titulo: {
     type: String,
-    require: true
+    required: true,
+    user_id: {
+      type: String,
+      required: true
+    }
   }
 },{
   timestamps: true
