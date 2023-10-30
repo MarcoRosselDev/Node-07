@@ -1,5 +1,5 @@
 const hamburguesa = document.querySelector('.hamburguesa');
-const lista = document.querySelector('.lista');
+const lista = document.querySelector('.lista-completa');
 
 hamburguesa.addEventListener('click', function (e) {
   e.preventDefault();
@@ -12,6 +12,7 @@ hamburguesa.addEventListener('click', function (e) {
   const listaClases = lista.classList;
   if (listaClases.contains('ocultar') == true) {
     listaClases.remove('ocultar')
+    listaClases.remove('lista')
     hamburguesa.innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>`
   } else{
     listaClases.add('ocultar')
