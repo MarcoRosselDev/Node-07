@@ -21,14 +21,22 @@ header nav{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: fixed;
   align-items: center;
   width: 100%;
-  border: 1px solid pink;
+  height: 75px;
+  border-bottom: 1px solid var(--main-color);
 }
 
 svg{
-  width: 10px;
-  height: 10px;
+  width: 25px;
+  height: 25px;
   fill: red;
-  border: 1px solid rgba(0, 0, 255, 0.322);
+  margin: 15px;
+  margin-right: 25px;
+}
+
+/* main */
+main{
+  margin-top: 150px;
 }
