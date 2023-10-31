@@ -7,8 +7,8 @@
 }
 
 *{
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -16,53 +16,49 @@ body{
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--main-bg-color);
   color: var(--main-color);
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
 header{
   background-color: var(--header-bg);
   height: 75px;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
-  width: 100%;
   border-bottom: 1px solid var(--border-color);
 }
 
-header nav{
+.logo-nav{
   display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  gap: 5px;
 }
 
 svg{
   width: 25px;
   height: 25px;
   fill: var(--main-color);
-  margin-right: 25px;
 }
 
 .lista{
   display: flex;
   flex-direction: column;
-  padding: 10px;
   position: static;
-  z-index: 100;
 }
 
 .lista-completa{
   margin-top: 75px;
   position: fixed;
   background-color: var(--header-bg);
-  width: 100%;
 }
 
 .footer-list{
+  display: flex;
+  flex-direction: row;
   position: fixed;
   background-color: var(--header-bg);
-  width: 100%;
   height: 100px;
   bottom: 0px;
   border-top: 1px solid var(--border-color);
@@ -71,6 +67,7 @@ svg{
 /* main */
 main{
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   z-index: -100;
@@ -83,14 +80,13 @@ main{
 }
 
 /* buttons */
-button{
+/* button{
   border: 1px solid var(--border-color);
   background-color: var(--main-bg-color);
   color: var(--main-color);
-  padding: 7px;
   border-radius: 5px;
 }
 
 button:hover{
   background-color: var(--bg-color-hover);
-}
+} */
