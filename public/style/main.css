@@ -29,6 +29,7 @@ header{
   align-items: center;
   position: fixed;
   border-bottom: 1px solid var(--border-color);
+  z-index: 100;
 }
 
 .logo-nav{
@@ -51,6 +52,13 @@ svg{
 .lista-completa{
   margin-top: 75px;
   position: fixed;
+  background-color: var(--header-bg);
+}
+
+.opciones{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
   background-color: var(--header-bg);
 }
 
