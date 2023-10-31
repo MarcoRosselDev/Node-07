@@ -4,7 +4,6 @@ const opciones = document.querySelector('.opciones');
 
 hamburguesa.addEventListener('click', function (e) {
   e.preventDefault();
-  console.log(opciones.classList);
   this.children[0].remove();
   const listaClases = lista.classList;
   const listaOpciones = opciones.classList

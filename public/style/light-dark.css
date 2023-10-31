@@ -1,0 +1,7 @@
+:root {
+  --main-bg-color: rgb(4, 13, 26);
+  --main-color: rgb(255 255 255);
+  --header-bg: rgb(12, 26, 39);
+  --border-color: rgba(138, 145, 202, 0.493);
+  --bg-color-hover: pink;
+}

@@ -68,8 +68,11 @@ svg{
   position: fixed;
   background-color: var(--header-bg);
   height: 100px;
+  width: 100%;
   bottom: 0px;
   border-top: 1px solid var(--border-color);
+  background-color: red;
+  z-index: 100;
 }
 
 /* main */
