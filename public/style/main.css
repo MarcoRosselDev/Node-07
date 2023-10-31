@@ -87,10 +87,11 @@ main{
   flex-direction: column;
   align-items: center;
 
+  gap: 30px;
   position: absolute;
   width: 100%;
   top: 75px;
-  z-index: -100;
+  z-index: 400;
   padding-bottom: 200px;
 }
 

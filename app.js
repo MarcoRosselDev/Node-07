@@ -17,9 +17,10 @@ app.use(express.json())// ---> req.body --> si no, no se envia el body
 //express settings
 app.use(morgan('dev')) // ---> log() info sobre la peticion, estado, method, etc
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/login', express.static(path.join(__dirname, 'pages', 'login')))
 app.use('/qwe', express.static(path.join(__dirname, 'pages', 'home')))
 
-app.use('/', user)
+app.use('/api/v1', user)
 
 const start = async () => {
   try {
