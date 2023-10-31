@@ -9,7 +9,7 @@ const puerto = process.env.PUERTO || 3000;
 const express = require('express');
 const app = express()
 // router
-const user = require('./router/usuario.js')
+const user = require('./router/ruta-usuario.js')
 
 app.use(express.urlencoded({extended: false}))// decodificar json aplication
 app.use(express.json())// ---> req.body --> si no, no se envia el body
@@ -19,6 +19,7 @@ app.use(morgan('dev')) // ---> log() info sobre la peticion, estado, method, etc
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/login', express.static(path.join(__dirname, 'pages', 'login')))
 app.use('/qwe', express.static(path.join(__dirname, 'pages', 'home')))
+app.use('/registrar', express.static(path.join(__dirname, 'pages', 'registrar')))
 
 app.use('/api/v1', user)
 
