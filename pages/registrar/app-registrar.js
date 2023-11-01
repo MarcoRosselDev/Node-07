@@ -14,16 +14,21 @@ enviar.addEventListener('click', async function (e) {
 
   //comprovacion de password
   if (password.value === passwordComparativo.value) {
-    const respuesta = await fetch('/api/v1/registrar', {
-      method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        nombre: nombre.value,
-        email: email.value,
-        password: password.value
+    try {
+      const respuesta = await fetch('/api/v1/registrar', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          nombre: nombre.value,
+          email: email.value,
+          password: password.value
+        })
       })
-    })
-    return respuesta.json()
+      return respuesta.json()
+    } catch (error) {
+      console.error(error)
+    }
+  } else{
+    console.log('Las contraseñas no coinsiden');
   }
-  console.log('Las contraseñas no coinsiden');
 })
