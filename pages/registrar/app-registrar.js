@@ -1,3 +1,6 @@
-console.log('registrar testing script');
+const enviar = document.getElementById('enviar');
 
-// en controllers devemos encriptar el password antes de guardarlo en mongo db
+enviar.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('click en enviar!');
+})
