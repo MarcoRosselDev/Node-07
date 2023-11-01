@@ -1,17 +1,19 @@
 const User = require('../models/Usuario.js');
+const bcrypt = require('bcryptjs');
 
 const nuevoUsuario = async (req, res) =>{
   try {
     console.log(req.body);
     const {nombre, password, email} = req.body
+    // encryptando el password antes de guardarlo en la database
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(password, salt)
+
     const usuario = await new User({
       nombre: nombre,
-      password: password,
+      password: passwordHash,
       email: email
     });
-
-    // en alguna parte devemos llamar el methodo encryptar password
-    // antes de guardarlo en mongoDB
     await usuario.save();
     res.status(200).json(usuario)
   } catch (error) {
