@@ -1,0 +1,21 @@
+:root {
+  --main-bg-color: rgb(4, 13, 26);
+  --main-color: rgb(255 255 255);
+  --header-bg: rgb(12, 26, 39);
+  --border-color: rgba(138, 145, 202, 0.493);
+  --bg-color-hover: pink;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+  width: 100%;
+  height: 100vh;
+}
