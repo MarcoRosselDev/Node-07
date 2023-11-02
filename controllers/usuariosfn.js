@@ -6,7 +6,7 @@ const bcryptPass = async (pass) =>{
   return await bcrypt.hash(pass, salt)
 }
 
-const nuevoUsuario = async (req, res) =>{
+const registrarUsuario = async (req, res) =>{
   try {
     console.log(req.body);
     const {nombre, password, email} = req.body
@@ -24,24 +24,18 @@ const nuevoUsuario = async (req, res) =>{
   }
 }
 
-const obtenerUsuario = async (req, res) => {
+const loginUsuario = async (req, res) => {
   try {
-    const buscar = {"email": req.body.email}
-    const user = await User.findOne(buscar);
-    const passwordDB = user.password;
-    //const passwordBodyCrypt = bcryptPass(req.body.password);
-    const comparacion = await bcrypt.compare(req.body.password ,passwordDB);
-    if (!comparacion) {
-      return res.status(404).json({msg: 'Password incorrecto'});
-    } else{
-      res.status(200).json({msg: "password valido, generar token con jwt", user})
-    }
+    const user = await User.findOne({email: req.body.email});
+    const comparacion = await bcrypt.compare(req.body.password , user.password);
+    if (!comparacion) return res.status(404).json({msg: 'Password incorrecto'});
+    res.status(200).json({msg: "password valido, generar token con jwt", user})
   } catch (error) {
     res.status(404).json({msj:'Usuario no encontrado'})
   }
 }
 
 module.exports = {
-  nuevoUsuario,
-  obtenerUsuario
+  registrarUsuario,
+  loginUsuario
 }
