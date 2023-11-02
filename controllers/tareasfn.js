@@ -12,7 +12,7 @@ const nuevaTarea = async (req, res) =>{
     const task = await new Tarea(cuerpo);
     await task.save();
     console.log(task);
-    res.status(201).json({mensaje: successfull, data: task})
+    return res.status(201).json({mensaje: successfull, data: task})
   } catch (error) {
     res.status(404).json({msg:error})
   }
