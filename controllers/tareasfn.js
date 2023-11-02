@@ -18,6 +18,21 @@ const nuevaTarea = async (req, res) =>{
   }
 }
 
+const getTareas = async (req, res) => {
+  console.log(req.user.id);
+  try {
+    const user_id = req.user.id;
+    const tasks = await Tarea.find({user_id: user_id})
+    if (!tasks) return res.status(404).json({msj: "Usuario no tiene tareas"})
+    const arr = []
+    tasks.forEach(datos => arr.push(datos))
+    res.status(200).json(arr)
+  } catch (error) {
+    res.status(404).json({msj: "Error en catch", data: error})
+  }
+}
+
 module.exports = {
-  nuevaTarea
+  nuevaTarea,
+  getTareas
 }
