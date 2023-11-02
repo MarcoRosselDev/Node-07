@@ -22,9 +22,34 @@ const nuevoUsuario = async (req, res) =>{
 }
 
 const obtenerUsuario = async (req, res) => {
+
+  /* ejemplo de usuario ya registrado 
+  {
+    "nombre": "marcus3",
+    "email": "qwe@gmail.com",
+    "password": "qwe123"
+  }
+  */
+
   try {
-    const user = await Usuario.find()
-    res.status(200).json(user)
+    console.log(req.body);
+    const buscar = {"email": req.body.email}
+    const user = await User.findOne(buscar);
+    const passwordDB = user.password;
+    const passwordBody = req.body.password;
+    // encriptar passwordDB para comparar con passwordBody
+    const salt = await bcrypt.genSalt(10);
+    const passwordBodyCrypt = await bcrypt.hash(passwordBody, salt);
+    const comparacion = await bcrypt.compare(passwordBodyCrypt ,passwordDB)
+
+    console.log('pass req',passwordBodyCrypt);
+    console.log('pass mongodb',passwordDB);
+    console.log('comparacion: ', comparacion);
+    if (!comparacion) {
+      return res.status(404).json({msg: 'Password incorrecto'});
+    } else{
+      res.status(200).json(user)
+    }
   } catch (error) {
     res.status(404).json({msj:'Usuario no encontrado'})
   }
