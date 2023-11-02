@@ -1,17 +1,20 @@
 const mongoose = require("mongoose");
-const {Schema, model} = mongoose;
 
-const tarea = new Schema({
+const tarea = new mongoose.Schema({
   titulo: {
     type: String,
-    required: true,
-    user_id: {
-      type: String,
-      required: true
-    }
+    require: true
+  },
+  contenido: {
+    type: String,
+    require: true, 
+  },
+  user_id: {
+    type: String,
+    require: true
   }
 },{
   timestamps: true
 })
 
-module.exports = model('Tarea', tarea);
+module.exports = mongoose.model('Tarea', tarea);
