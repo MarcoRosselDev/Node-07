@@ -1,7 +1,7 @@
 {
   "name": "node-07",
   "version": "1.0.0",
-  "description": "CRUD, jwt, cookies, and resondive designe",
+  "description": "CRUD, jwt, cookies, and responsive designe",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -16,6 +16,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.6.3",
     "morgan": "^1.10.0"
   }
