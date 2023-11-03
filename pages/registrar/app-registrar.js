@@ -4,6 +4,9 @@ const password = document.getElementById('password');
 const passwordComparativo = document.getElementById('password-comparativo');
 const email = document.getElementById('email');
 
+console.log(document.cookie);
+console.log('hola');
+
 enviar.addEventListener('click', async function (e) {
   e.preventDefault();
   if (password.value === passwordComparativo.value) {

@@ -20,7 +20,26 @@ submit.addEventListener('click', async function (e) {
     console.log(login);
     //console.log(login.json());
     const prom = login.json();
-    prom.then(data => console.log(data))
+    prom.then(data => {
+      console.log(data)
+      return data.jwt;
+    })
+    .then((data)=>{
+      console.log(typeof(data));
+      console.log(data, "data from then");
+      // confirmado, podemos pasarnos datos desde el encadenamiento
+    
+      // podemos aplicar un condicional,
+      // luego si status=200 redirecionar a tareas del usuario y cargarlas todas
+      // location.href="file.html"
+      // antes de reenviar, guardar la jwt en una cookie
+      // al acceder a tareas, primero conseguir este jwt,
+      // protejer la url con el jwt.
+
+      document.cookie = `jwt-cookie=${data}`;
+      console.log(document.cookie);
+      //location.href= '/registrar';
+    })
 
   } catch (error) {
     console.log(error);
