@@ -4,11 +4,9 @@ const submit = document.getElementById('sendLogin');
 
 submit.addEventListener('click', async function (e) {
   e.preventDefault();
-  console.log(email.value);
-  console.log(password.value);
   try {
     const login = await fetch('/api/v1/login', {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
         // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -20,9 +18,10 @@ submit.addEventListener('click', async function (e) {
     });
 
     console.log(login);
-    /* login
-      .then(data => data.json())
-      .then(valor => console.log(valor)) */
+    //console.log(login.json());
+    const prom = login.json();
+    prom.then(data => console.log(data))
+
   } catch (error) {
     console.log(error);
   }

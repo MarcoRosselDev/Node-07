@@ -6,10 +6,11 @@ const verifyToken = require('./validar-token.js')
 
 //app.use('/api/v1', user)--> como referencia
 router.route('/registrar').post(registrarUsuario);
-router.route('/login').get(loginUsuario)
+//router.route('/login').get(loginUsuario)
 router.post('/tarea', verifyToken, nuevaTarea)
 //router.post('/tarea', verifyToken, newTask)
 router.get('/tarea', verifyToken, getTareas)
+router.post('/login', loginUsuario)
 //router.route('/login').get(getToken)
 
 module.exports = router;

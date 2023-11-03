@@ -6,13 +6,6 @@ const email = document.getElementById('email');
 
 enviar.addEventListener('click', async function (e) {
   e.preventDefault();
-  console.log('click en enviar!');
-  console.log(nombre.value);
-  console.log(email.value);
-  console.log(password.value);
-  console.log(passwordComparativo.value);
-
-  //comprovacion de password
   if (password.value === passwordComparativo.value) {
     try {
       const respuesta = await fetch('/api/v1/registrar', {
