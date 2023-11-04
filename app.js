@@ -25,6 +25,11 @@ app.use('/login', express.static(path.join(__dirname, 'pages', 'login')))
 app.use('/home', express.static(path.join(__dirname, 'pages', 'home')))
 app.use('/registrar', express.static(path.join(__dirname, 'pages', 'registrar')))
 
+// test de uso de cookies
+app.get('/setCookie', (req, res) =>{
+  res.status(200).cookie('mi cookie name', 'valor de la cookie').json({msj: 'Testing cookie !'})
+})
+
 const start = async () => {
   try {
     await connect(url);
