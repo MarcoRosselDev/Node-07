@@ -6,6 +6,7 @@ const morgan = require('morgan'); //--> log info about method, status, time, etc
 const puerto = process.env.PUERTO || 3000;
 
 const user = require('./router/ruta-usuario.js')
+const verifyToken = require('./router/validar-token.js')
 
 // express
 const cookieParser = require('cookie-parser');
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));//---> url "/"
 app.use('/login', express.static(path.join(__dirname, 'pages', 'login')))
 app.use('/home', express.static(path.join(__dirname, 'pages', 'home')))
 app.use('/registrar', express.static(path.join(__dirname, 'pages', 'registrar')))
+app.use('/tareas', verifyToken ,express.static(path.join(__dirname, 'pages', 'tareas-usuario')))
 
 // test de uso de cookies
 app.get('/setCookie', (req, res) =>{

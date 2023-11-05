@@ -38,7 +38,8 @@ const loginUsuario = async (req, res) => {
       name: user.name,
       id: user._id
     }, process.env.TOKEN_SECRET)
-    res.status(200).header('auth-token', token).json({msg: "credenciales validas", jwt: token})
+
+    res.status(200).header('auth-token', token).cookie('jwt-cookie', token).json({msg: "credenciales validas", jwt: token})
   } catch (error) {
     res.status(404).json({msj:'Usuario no encontrado'})
   }

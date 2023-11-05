@@ -36,9 +36,7 @@ submit.addEventListener('click', async function (e) {
       // al acceder a tareas, primero conseguir este jwt,
       // protejer la url con el jwt.
 
-      document.cookie = `jwt-cookie=${data}`;
-      console.log(document.cookie);
-      //location.href= '/registrar';
+      location.href= '/tareas';
     })
 
   } catch (error) {
