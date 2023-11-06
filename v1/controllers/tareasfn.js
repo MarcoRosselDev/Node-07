@@ -1,4 +1,4 @@
-const Tarea = require('../models/tarea.js');
+const Tarea = require('../v1/models/tarea.js');
 
 const nuevaTarea = async (req, res) =>{
   console.log(req.user);
