@@ -1,5 +1,5 @@
 require('dotenv').config();
-const connect = require('./connect.js');
+const connect = require('../connect.js');
 const url = process.env.MONGO_URL;
 const path = require('path');
 const morgan = require('morgan'); //--> log info about method, status, time, etcGIT 

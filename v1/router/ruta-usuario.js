@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {registrarUsuario, loginUsuario} = require('../controllers/usuariosfn.js')
-const {nuevaTarea, getTareas} = require('../controllers/tareasfn.js')
+const {registrarUsuario, loginUsuario} = require('../../controllers/usuariosfn.js')
+const {nuevaTarea, getTareas} = require('../../controllers/tareasfn.js')
 const verifyToken = require('./validar-token.js')
 
 //app.use('/api/v1', user)--> como referencia
