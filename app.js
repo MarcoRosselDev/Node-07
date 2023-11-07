@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
+const connect = require('./connect.js');
 const tareas = require('./router/tareas.js');
 
 //express settings
@@ -11,6 +13,17 @@ app.get('/', (req, res) => {
   res.send('Hola mundo!')
 })
 
-app.listen(3000, ()=>{
-  console.log("escuchando en el puerto 3000");
-})
+const url = process.env.MONGO_URL;
+const puerto = process.env.PUERTO || 3000;
+const start = async () => {
+  try {
+    await connect(url);
+    app.listen(puerto, () => {
+      console.log(`Escuchando en el puerto ${puerto}`);
+    })
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+start();
