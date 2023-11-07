@@ -1,5 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const morgan = require('morgan');
+
+router.use(morgan('common'))
+//cookie validator
+const cookieParser = require('cookie-parser');
+router.use(cookieParser())
 
 //middlewares
 const {
@@ -9,6 +15,11 @@ const {
 router.get('/', testMiddleware, usarNombre, (req, res) =>{
   const final = `log ==> ${req.saludo}`;
   res.send(`${final}, desde '/' de router tareas`)
+})
+
+//error handler
+router.use((err, req, res, next)=>{
+  res.status(400).send(err.message)
 })
 
 module.exports = router;
