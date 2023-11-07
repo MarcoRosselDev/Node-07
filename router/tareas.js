@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const morgan = require('morgan');
+const nuevoUsuario = require('../controller/registro.js')
 
 router.use(morgan('common'))
 //cookie validator
@@ -16,6 +17,7 @@ router.get('/', testMiddleware, usarNombre, (req, res) =>{
   const final = `log ==> ${req.saludo}`;
   res.send(`${final}, desde '/' de router tareas`)
 })
+router.post('/registrar', nuevoUsuario)
 
 //error handler
 router.use((err, req, res, next)=>{

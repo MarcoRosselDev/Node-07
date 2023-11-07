@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
   res.send('Hola mundo!')
 })
 
+app.get('/login', (req, res) => {
+  res.status(200).send('login page')
+})
+
 const url = process.env.MONGO_URL;
 const puerto = process.env.PUERTO || 3000;
 const start = async () => {
