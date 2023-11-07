@@ -3,8 +3,9 @@ const bcrypt = require('bcryptjs');
 
 const loginUsuario = async (req, res) =>{
   try {
+    console.log(req.body);
     const {password, email} = req.body;
-    const user = Usuario.find({email: email})
+    const user = Usuario.findOne({email: email})
     const comparacion  = bcrypt.compare(password, user.password);
     if (!comparacion) return res.status(401).send('password incorrecto!')
     res.status(200).send('generar token')
