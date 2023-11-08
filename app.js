@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const connect = require('./connect.js');
-const tareas = require('./router/tareas.js');
+const tareas = require('./router/router-tareas.js');
 
 //express settings
 app.use(express.urlencoded({extended: false}));// decodificar json aplication
