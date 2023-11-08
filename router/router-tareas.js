@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const morgan = require('morgan');
 const nuevoUsuario = require('../controller/registro.js');
 const loginUsuario = require('../controller/login.js');
 
-router.use(morgan('common'))
 //cookie validator
-const cookieParser = require('cookie-parser');
-router.use(cookieParser())
+/* const cookieParser = require('cookie-parser');
+router.use(cookieParser()) */
 
 //middlewares
 const {

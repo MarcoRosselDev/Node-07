@@ -7,10 +7,14 @@ const loginUsuario = async (req, res) =>{
     
     const {email, password} = req.body;
     //const query = Usuario.where({email: email});
+    console.log('body: ', email, password);
     const query = {'email': email};
-    const response = Usuario.findOne(query);
+    console.log('query: ', query);
+    const response = await Usuario.find({email: req.body.email}).exec();
 
-    if (!response) return res.status(400).send(`Usuario ${email} no encontrado !`)
+    if (!response) {
+      return res.status(400).send(`Usuario ${email} no encontrado !`)
+    }
     res.status(200).json(response);
 
   } catch (error) {

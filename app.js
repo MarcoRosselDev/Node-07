@@ -3,6 +3,9 @@ const app = express();
 require('dotenv').config();
 const connect = require('./connect.js');
 const tareas = require('./router/router-tareas.js');
+const morgan = require('morgan');
+
+app.use(morgan('dev'))
 
 //express settings
 app.use(express.urlencoded({extended: false}));// decodificar json aplication
