@@ -29,7 +29,19 @@ const registrarUsuario = async (req, res) =>{
 }
 
 const loginUsuario = async (req, res) => {
+
   try {
+    const {email, password} = req.body;
+    //const query = {"email": email};
+    const query = User.where({"email": email})
+    const user = await query.findOne();
+    if (!user) return res.status(400).send("Usuario no encontrado!");
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).send(error)
+  }
+
+/*   try {
     const user = await User.findOne({email: req.body.email});
     const comparacion = await bcrypt.compare(req.body.password , user.password);
     if (!comparacion) return res.status(404).json({msg: 'Password incorrecto'});
@@ -42,7 +54,7 @@ const loginUsuario = async (req, res) => {
     res.status(200).header('auth-token', token).cookie('jwt-cookie', token).json({msg: "credenciales validas", jwt: token})
   } catch (error) {
     res.status(404).json({msj:'Usuario no encontrado'})
-  }
+  } */
 }
 
 module.exports = {
